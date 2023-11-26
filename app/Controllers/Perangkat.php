@@ -32,7 +32,6 @@ class Perangkat extends BaseController
         
         $data = [
             'title' => "List Perangkat". $this->judul_web,
-            // 'perangkat' => $this->perangkatModel->getPerangkat()
             'perangkat' => $this->perangkatModel->paginate(5, 'perangkat'),
             'pager' => $this->perangkatModel->pager,
             'currentPage' => $currentPage
@@ -41,20 +40,6 @@ class Perangkat extends BaseController
     }
     
     
-//     public function detail($kode_perangkat){
-//         $data = [
-//             'title' => "Detail Perangkat". $this->judul_web,
-//             'perangkat' => $this->perangkatModel->getPerangkat($kode_perangkat)
-//         ];
-        
-//         if(empty($data['perangkat'])){
-//             throw new \CodeIgniter\Exceptions\PageNotFoundException("Data perangkat tidak ditemukan!");
-//         };
-
-//         return view('templates/header', $data) . view('data/perangkat/detail_perangkat') . view('templates/footer');
-//     }
-    
-
 
     public function create(){
         session();
@@ -94,8 +79,10 @@ class Perangkat extends BaseController
         // Ambil gambar
         $gambar_perangkat = $this->request->getFile('gambar');
 
+
         if($gambar_perangkat->getError() == 4){
             $nama_gambar = 'default.jpg';
+
         }else{
             // Pindahkan gambar
             $gambar_perangkat->move('img/perangkat');
@@ -119,7 +106,18 @@ class Perangkat extends BaseController
         return redirect()->to('/perangkat');
     }
     
-
+    public function detail($kode_perangkat){
+        $data = [
+            'title' => "Detail Perangkat". $this->judul_web,
+            'perangkat' => $this->perangkatModel->getPerangkat($kode_perangkat)
+        ];
+        
+        if(empty($data['perangkat'])){
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data perangkat tidak ditemukan!");
+        };
+        
+        return view('templates/header', $data) . view('perangkat/detail_perangkat', $data) . view('templates/footer');
+    }
 
 //     public function delete($id){
 //         $perangkat = $this->perangkatModel->find($id);
