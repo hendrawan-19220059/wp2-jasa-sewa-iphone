@@ -35,16 +35,21 @@
                     <a class="nav-link" id="nav-home" href="<?= base_url('/'); ?>">HOME</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link " href="<?= base_url('/pages'); ?>">ABOUT US</a>
+                    <a class="nav-link " href="<?= base_url('/perangkat'); ?>">PERANGKAT</a>
                     </li>
                     <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url('/data'); ?>">DATA</a>
+                    <a class="nav-link" href="<?= base_url('/petugas'); ?>">PETUGAS</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="<?= base_url('/contact'); ?>">CONTACT US</a>
+                      <a class="nav-link" href="<?= base_url('/user-list'); ?>">USER LIST</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " aria-current="page" href="<?= base_url('/logout'); ?>">LOGOUT</a>
+                      <a class="nav-link" href="<?= base_url('/transkasi'); ?>">TRANSAKSI</a>
+                    </li>
+
+
+                    <li class="nav-item ">
+                      <a class="nav-link" aria-current="page" href="<?= base_url('/logout'); ?>">LOGOUT</a>
                     </li>
                 </ul>
             </div>
