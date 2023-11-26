@@ -52,7 +52,7 @@
               <a href="#questions" class="nav-link">Questions</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">Admin</a>
+              <a href="<?= base_url('/login'); ?>" class="nav-link">Admin</a>
             </li>
           </ul>
         </div>
