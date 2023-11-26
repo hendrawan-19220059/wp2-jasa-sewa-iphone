@@ -13,7 +13,7 @@ class Dashboard extends BaseController
             'title' => "Dashboard". $this->judul_web,
         ];
 
-        return view('templates/header', $data) . view('dashboard') . view('templates/footer');
+        return view('templates/header', $data) . view('dashboard/dashboard') . view('templates/footer');
 
     }
 }
