@@ -23,3 +23,27 @@ body::before {
 }
 
 
+.gambar{
+  width: 80px;
+}
+
+
+.gambar-detail{
+  margin-left: 100px;
+  width: 320px;
+}
+
+
+.container-perangkat{
+  width: 720px;
+  background-color: #e9ece6;
+  height: 600px;
+  /* margin-top: 50px; */
+}
+.perangkat h1{
+  padding-top: 15px;
+}
+form .perangkat{
+  width: 510px;
+  margin: 10px auto;
+}
