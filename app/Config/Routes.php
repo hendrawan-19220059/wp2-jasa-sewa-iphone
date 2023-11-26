@@ -24,6 +24,9 @@ $routes->get('/register', 'Register::index', ['filter' => 'guestFilter']);
 $routes->post('/register', 'Register::register', ['filter' => 'guestFilter']);
 
 
+// Logout
+$routes->get('/logout', 'Login::logout', ['filter' => 'authFilter']);
+
 // Perangkat
 $routes->get('/perangkat', 'perangkat::index', ['filter' => 'authFilter']);
 $routes->post('/perangkat', 'perangkat::index', ['filter' => 'authFilter']);
