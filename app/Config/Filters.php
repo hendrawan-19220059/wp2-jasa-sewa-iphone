@@ -24,6 +24,8 @@ class Filters extends BaseConfig
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
+        'authFilter'    => \App\Filters\AuthFilter::class,
+        'guestFilter'   => \App\Filters\GuestFilter::class,
         'secureheaders' => SecureHeaders::class,
     ];
 
