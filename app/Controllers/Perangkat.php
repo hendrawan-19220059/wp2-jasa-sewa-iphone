@@ -56,68 +56,68 @@ class Perangkat extends BaseController
     
 
 
-//     public function create(){
-//         session();
-//         $data = [
-//             'title' => "Tambah Perangkat". $this->judul_web,
-//             'validation' => \Config\Services::validation()
-//         ];
+    public function create(){
+        session();
+        $data = [
+            'title' => "Tambah Perangkat". $this->judul_web,
+            'validation' => \Config\Services::validation()
+        ];
         
-//         return view('templates/header', $data) . view('data/perangkat/tambah_perangkat') . view('templates/footer');
-//     }
+        return view('templates/header', $data) . view('perangkat/tambah_perangkat') . view('templates/footer');
+    }
 
 
 
-//     public function save(){ 
-//         // validasi input
-//         if(!$this->validate([
-//             'kode_perangkat' => [
-//                 'rules' => 'is_unique[perangkat.kode_perangkat]',
-//                 'errors' => [
-//                     'is_unique' => 'Kode Perangkat sudah terdaftar!'
-//                 ]
-//                 ],
-//             'gambar' => [
-//                 'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-//                 'errors'=> [
-//                     'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
-//                     'is_image' => 'File yang anda upload bukan gambar',
-//                     'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
-//                 ]
-//                 ]
-//         ])){
-//             $validation = \Config\Services::validation();
-//             // Mengembalikan ke halaman tambah perangkat
-//             return redirect()->back()->withInput()->with('validation', $validation);
-//         }
+    public function save(){ 
+        // validasi input
+        if(!$this->validate([
+            'kode_perangkat' => [
+                'rules' => 'is_unique[perangkat.kode_perangkat]',
+                'errors' => [
+                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
+                ]
+                ],
+            'gambar' => [
+                'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors'=> [
+                    'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
+                    'is_image' => 'File yang anda upload bukan gambar',
+                    'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
+                ]
+                ]
+        ])){
+            $validation = \Config\Services::validation();
+            // Mengembalikan ke halaman tambah perangkat
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
 
-//         // Ambil gambar
-//         $gambar_perangkat = $this->request->getFile('gambar');
+        // Ambil gambar
+        $gambar_perangkat = $this->request->getFile('gambar');
 
-//         if($gambar_perangkat->getError() == 4){
-//             $nama_gambar = 'default.jpg';
-//         }else{
-//             // Pindahkan gambar
-//             $gambar_perangkat->move('img/perangkat');
-//             // Ambil nama gambar
-//             $nama_gambar = $gambar_perangkat->getName();
-//         }
+        if($gambar_perangkat->getError() == 4){
+            $nama_gambar = 'default.jpg';
+        }else{
+            // Pindahkan gambar
+            $gambar_perangkat->move('img/perangkat');
+            // Ambil nama gambar
+            $nama_gambar = $gambar_perangkat->getName();
+        }
 
 
 
-//         $this->perangkatModel->save([
-//             'kode_perangkat' => $this->request->getPost('kode_perangkat'),
-//             'nama_perangkat' => $this->request->getPost('nama_perangkat'),
-//             'memory'=> $this->request->getPost('memory'),
-//             'warna' => $this->request->getPost('warna'),
-//             'gambar' => $nama_gambar
-//         ]);
+        $this->perangkatModel->save([
+            'kode_perangkat' => $this->request->getPost('kode_perangkat'),
+            'nama_perangkat' => $this->request->getPost('nama_perangkat'),
+            'memory'=> $this->request->getPost('memory'),
+            'warna' => $this->request->getPost('warna'),
+            'gambar' => $nama_gambar
+        ]);
 
-//         // Menambahkan session sebelum redirect untuk alert
-//         session()->setFlashdata("pesan", "Data berhasil ditambahkan!");
+        // Menambahkan session sebelum redirect untuk alert
+        session()->setFlashdata("pesan", "Data berhasil ditambahkan!");
 
-//         return redirect()->to('/data/perangkat');
-//     }
+        return redirect()->to('/perangkat');
+    }
     
 
 

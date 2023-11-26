@@ -8,8 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->setAutoRoute(true);
-$routes->get('/', 'Home::index');
 
+
+// Index
+$routes->get('/', 'Home::index', ['filter' => 'guestFilter']);
 
 // Login
 
@@ -25,9 +27,13 @@ $routes->post('/register', 'Register::register', ['filter' => 'guestFilter']);
 // Perangkat
 $routes->get('/perangkat', 'perangkat::index', ['filter' => 'authFilter']);
 $routes->post('/perangkat', 'perangkat::index', ['filter' => 'authFilter']);
+
 $routes->get('/perangkat/create', 'perangkat::create', ['filter' => 'authFilter']);
 $routes->post('/perangkat/save', 'perangkat::save', ['filter' => 'authFilter']);
+
 $routes->get('/perangkat/delete/(:segment)', 'perangkat::delete/$1', ['filter' => 'authFilter']);
+
 $routes->get('/perangkat/(:segment)', 'perangkat::detail/$1', ['filter' => 'authFilter']);
+
 $routes->get('/perangkat/update/(:segment)', 'perangkat::update/$1', ['filter' => 'authFilter']);
 $routes->post('/perangkat/change/(:segment)', 'perangkat::change/$1', ['filter' => 'authFilter']);
