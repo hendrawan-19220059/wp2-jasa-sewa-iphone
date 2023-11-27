@@ -139,72 +139,72 @@ class Perangkat extends BaseController
 
 
 
-//     public function update($id){
-//         session();
-//         $data = [
-//             'title' => "Update Perangkat". $this->judul_web,
-//             'validation' => \Config\Services::validation(),
-//             'perangkat' => $this->perangkatModel->getPerangkat($id)
-//         ];     
-//         return view('templates/header', $data) . view('data/perangkat/update_perangkat') . view('templates/footer');
-//     }
+    public function update($id){
+        session();
+        $data = [
+            'title' => "Update Perangkat". $this->judul_web,
+            'validation' => \Config\Services::validation(),
+            'perangkat' => $this->perangkatModel->getPerangkat($id)
+        ];     
+        return view('templates/header', $data) . view('perangkat/update_perangkat') . view('templates/footer');
+    }
 
 
 
-//     public function change($id){
-//         if(!$this->validate([
-//             'kode_perangkat' => [
-//                 'rules' => 'is_unique[perangkat.kode_perangkat, id,' .  $id . ']',
-//                 'errors' => [
-//                     'is_unique' => 'Kode Perangkat sudah terdaftar!'
-//                 ]
-//                 ],
-//             'gambar' => [
-//                 'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-//                 'errors'=> [
-//                     'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
-//                     'is_image' => 'File yang anda upload bukan gambar',
-//                     'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
-//                 ]
-//                 ]
-//         ])) {
+    public function change($id){
+        if(!$this->validate([
+            'kode_perangkat' => [
+                'rules' => 'is_unique[perangkat.kode_perangkat, id,' .  $id . ']',
+                'errors' => [
+                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
+                ]
+                ],
+            'gambar' => [
+                'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors'=> [
+                    'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
+                    'is_image' => 'File yang anda upload bukan gambar',
+                    'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
+                ]
+                ]
+        ])) {
            
-//             $validation = \Config\Services::validation();
-//             // Mengembalikan ke halaman tambah perangkat
-//             return redirect()->back()->withInput()->with('validation', $validation);
-//         }
+            $validation = \Config\Services::validation();
+            // Mengembalikan ke halaman tambah perangkat
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
         
-//         $perangkat = $this->perangkatModel->find($id);
-//         $gambar_perangkat = $this->request->getFile('gambar');
-//         $nama_gambar_lama = $perangkat['gambar'];
-//         $nama_gambar = '';
+        $perangkat = $this->perangkatModel->find($id);
+        $gambar_perangkat = $this->request->getFile('gambar');
+        $nama_gambar_lama = $perangkat['gambar'];
+        $nama_gambar = '';
 
-//         // dd($nama_gambar_lama);
+        // dd($nama_gambar_lama);
 
-//         if($gambar_perangkat->getError() != 4){
-//             unlink('img/perangkat/'. $nama_gambar_lama);
-//             // Pindahkan gambar
-//             $gambar_perangkat->move('img/perangkat');
-//             // Ambil nama gambar
-//             $nama_gambar = $gambar_perangkat->getName();
-//         }else{
-//             $nama_gambar = $nama_gambar_lama;
-//         }
+        if($gambar_perangkat->getError() != 4){
+            unlink('img/perangkat/'. $nama_gambar_lama);
+            // Pindahkan gambar
+            $gambar_perangkat->move('img/perangkat');
+            // Ambil nama gambar
+            $nama_gambar = $gambar_perangkat->getName();
+        }else{
+            $nama_gambar = $nama_gambar_lama;
+        }
 
 
-//         $this->perangkatModel->save([
-//             'id' => $id,
-//             'kode_perangkat' => $this->request->getPost('kode_perangkat'),
-//             'nama_perangkat' => $this->request->getPost('nama_perangkat'),
-//             'memory'=> $this->request->getPost('memory'),
-//             'warna' => $this->request->getPost('warna'),
-//             'gambar' => $nama_gambar
-//         ]);
+        $this->perangkatModel->save([
+            'id' => $id,
+            'kode_perangkat' => $this->request->getPost('kode_perangkat'),
+            'nama_perangkat' => $this->request->getPost('nama_perangkat'),
+            'memory'=> $this->request->getPost('memory'),
+            'warna' => $this->request->getPost('warna'),
+            'gambar' => $nama_gambar
+        ]);
 
-//         // Menambahkan session sebelum redirect untuk alert
-//         session()->setFlashdata("pesan", "Data berhasil diubah!");
+        // Menambahkan session sebelum redirect untuk alert
+        session()->setFlashdata("pesan", "Data berhasil diubah!");
 
-//         return redirect()->to('/data/perangkat');
+        return redirect()->to('/perangkat');
 
-//     }
+    }
 }
