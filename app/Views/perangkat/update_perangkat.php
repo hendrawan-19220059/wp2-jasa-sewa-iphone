@@ -46,11 +46,7 @@
                 <label for="warna" class="form-label">Warna</label>
                 <input type="text" class="form-control" name="warna" value="<?= $perangkat['warna']?>">
             </div>
-            
-            <!-- <div class="mb-3 mx-5 float-md-start col-md-5">
-                <label for="gambar" class="form-label">Gambar</label>
-                <input type="text" class="form-control" name="gambar" required value="<?= old('gambar');?>">
-            </div> -->
+
             <div class="mb-2 mx-5 float-md-start col-md-5">
                 <label for="formFile" class="form-label">Gambar (.jpg/.jpeg/.png)</label>
                 <input class="form-control" type="file" id="formFile" name="gambar">
@@ -60,21 +56,5 @@
                 <button type="submit" class="btn btn-primary my-2" name="submit">Submit</button>
                 <a href="<?= base_url('/perangkat'); ?>" class="btn btn-success ms-2">Back</a>
             </div>
-            <!-- <dl class="row">
-                <dt class="col-sm-5">Kode Perangkat</dt>
-                <dd class="col-sm-6"><?= $perangkat['kode_perangkat']?></dd>
-                
-                
-                <dt class="col-sm-5">Nama Perangkat</dt>
-                <dd class="col-sm-6"><?= $perangkat['nama_perangkat']?></dd>
-
-                <dt class="col-sm-5">Memory</dt>
-                <dd class="col-sm-6"><?= $perangkat['memory']?> GB</dd>
-                
-                <dt class="col-sm-5">Warna</dt>
-                <dd class="col-sm-6"><?= $perangkat['warna']?></dd>
-                
-            </dl>
-        -->
         </div>
 
