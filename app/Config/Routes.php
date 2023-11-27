@@ -40,3 +40,8 @@ $routes->get('/perangkat/(:segment)', 'perangkat::detail/$1', ['filter' => 'auth
 
 $routes->get('/perangkat/update/(:segment)', 'perangkat::update/$1', ['filter' => 'authFilter']);
 $routes->post('/perangkat/change/(:segment)', 'perangkat::change/$1', ['filter' => 'authFilter']);
+
+
+// User List
+$routes->get('/user-list', 'userList::index', ['filter' => 'authFilter']);
+$routes->post('/user-list', 'userList::index', ['filter' => 'authFilter']);

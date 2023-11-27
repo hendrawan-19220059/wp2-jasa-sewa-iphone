@@ -14,7 +14,23 @@
                     <h5 class="card-title mb-4">Register</h5>
                     <form action="<?php echo base_url('/register'); ?>" method="post">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
+                            <label for="text" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="<?= set_value('username') ?>">
+                            <?php if(isset($validation)):?>
+                                <small class="text-danger"><?= $validation->getError('username') ?></small>
+                            <?php endif;?>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('nama') ?>">
+                            <?php if(isset($validation)):?>
+                                <small class="text-danger"><?= $validation->getError('nama') ?></small>
+                            <?php endif;?>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
                             <?php if(isset($validation)):?>
                                 <small class="text-danger"><?= $validation->getError('email') ?></small>
@@ -28,7 +44,7 @@
                             <?php endif;?>
                         </div>
                         <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <label for="confirm_password" class="form-label">Konfirmasi Password</label>
                             <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                             <?php if(isset($validation)):?>
                                 <small class="text-danger"><?= $validation->getError('confirm_password') ?></small>

@@ -4,13 +4,13 @@ namespace App\Controllers;
 
 use App\Models\PerangkatModel;
 
-class Perangkat extends BaseController
+class Pelanggan extends BaseController
 {
-    protected $perangkatModel;
+    protected $pelangganModel;
 
     public function __construct()
     {
-        $this->perangkatModel = new PerangkatModel();
+        $this->pelangganModel = new PerangkatModel();
         
     }
 
@@ -23,17 +23,17 @@ class Perangkat extends BaseController
         $keyword = $this->request->getVar('keyword');
         
         if($keyword){
-            $perangkat = $this->perangkatModel->cari($keyword);
+            $perangkat = $this->pelangganModel->cari($keyword);
         }else {
-            $perangkat = $this->perangkatModel->findAll();
+            $perangkat = $this->pelangganModel->findAll();
         }
 
 
         
         $data = [
             'title' => "List Perangkat". $this->judul_web,
-            'perangkat' => $this->perangkatModel->paginate(5, 'perangkat'),
-            'pager' => $this->perangkatModel->pager,
+            'perangkat' => $this->pelangganModel->paginate(5, 'perangkat'),
+            'pager' => $this->pelangganModel->pager,
             'currentPage' => $currentPage
         ];
         return view('templates/header', $data) . view('/perangkat/index', $data) . view('templates/footer');
@@ -92,7 +92,7 @@ class Perangkat extends BaseController
 
 
 
-        $this->perangkatModel->save([
+        $this->pelangganModel->save([
             'kode_perangkat' => $this->request->getPost('kode_perangkat'),
             'nama_perangkat' => $this->request->getPost('nama_perangkat'),
             'memory'=> $this->request->getPost('memory'),
@@ -109,7 +109,7 @@ class Perangkat extends BaseController
     public function detail($kode_perangkat){
         $data = [
             'title' => "Detail Perangkat". $this->judul_web,
-            'perangkat' => $this->perangkatModel->getPerangkat($kode_perangkat)
+            'perangkat' => $this->pelangganModel->getPerangkat($kode_perangkat)
         ];
         
         if(empty($data['perangkat'])){
@@ -125,7 +125,7 @@ class Perangkat extends BaseController
         $data = [
             'title' => "Update Perangkat". $this->judul_web,
             'validation' => \Config\Services::validation(),
-            'perangkat' => $this->perangkatModel->getPerangkat($id)
+            'perangkat' => $this->pelangganModel->getPerangkat($id)
         ];     
         return view('templates/header', $data) . view('perangkat/update_perangkat') . view('templates/footer');
     }
@@ -155,7 +155,7 @@ class Perangkat extends BaseController
             return redirect()->back()->withInput()->with('validation', $validation);
         }
         
-        $perangkat = $this->perangkatModel->find($id);
+        $perangkat = $this->pelangganModel->find($id);
         $gambar_perangkat = $this->request->getFile('gambar');
         $nama_gambar_lama = $perangkat['gambar'];
         $nama_gambar = '';
@@ -173,7 +173,7 @@ class Perangkat extends BaseController
         }
 
 
-        $this->perangkatModel->save([
+        $this->pelangganModel->save([
             'id' => $id,
             'kode_perangkat' => $this->request->getPost('kode_perangkat'),
             'nama_perangkat' => $this->request->getPost('nama_perangkat'),
@@ -190,7 +190,7 @@ class Perangkat extends BaseController
     }
 
     public function delete($id){
-        $perangkat = $this->perangkatModel->find($id);
+        $perangkat = $this->pelangganModel->find($id);
                 
         // Delete gambar di file lokal
         if($perangkat['gambar'] != 'default.jpg'){
@@ -198,7 +198,7 @@ class Perangkat extends BaseController
         }
         
         // Delete gambar di database
-        $this->perangkatModel->where(['id' => $id])->delete();
+        $this->pelangganModel->where(['id' => $id])->delete();
 
         // Kirim pesan ke halaman selanjutnya
         session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
