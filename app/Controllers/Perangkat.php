@@ -119,25 +119,6 @@ class Perangkat extends BaseController
         return view('templates/header', $data) . view('perangkat/detail_perangkat', $data) . view('templates/footer');
     }
 
-//     public function delete($id){
-//         $perangkat = $this->perangkatModel->find($id);
-                
-//         // Delete gambar di file lokal
-//         if($perangkat['gambar'] != 'default.jpg'){
-//             unlink('img/perangkat/'. $perangkat['gambar']);
-//         }
-        
-//         // Delete gambar di database
-//         $this->perangkatModel->where(['id' => $id])->delete();
-
-//         // Kirim pesan ke halaman selanjutnya
-//         session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
-
-//         // Redirect ke halaman awal
-//         return redirect()->back();
-//     }
-
-
 
     public function update($id){
         session();
@@ -207,4 +188,23 @@ class Perangkat extends BaseController
         return redirect()->to('/perangkat');
 
     }
+
+    public function delete($id){
+        $perangkat = $this->perangkatModel->find($id);
+                
+        // Delete gambar di file lokal
+        if($perangkat['gambar'] != 'default.jpg'){
+            unlink('img/perangkat/'. $perangkat['gambar']);
+        }
+        
+        // Delete gambar di database
+        $this->perangkatModel->where(['id' => $id])->delete();
+
+        // Kirim pesan ke halaman selanjutnya
+        session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
+
+        // Redirect ke halaman awal
+        return redirect()->back();
+    }
+
 }
