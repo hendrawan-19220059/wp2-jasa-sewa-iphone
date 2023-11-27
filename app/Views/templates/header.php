@@ -38,6 +38,9 @@
                     <a class="nav-link " href="<?= base_url('/perangkat'); ?>">PERANGKAT</a>
                     </li>
                     <li class="nav-item">
+                    <a class="nav-link " href="<?= base_url('/pelanggan'); ?>">PELANGGAN</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link" href="<?= base_url('/user-list'); ?>">USER LIST</a>
                     </li>
                     <li class="nav-item">
