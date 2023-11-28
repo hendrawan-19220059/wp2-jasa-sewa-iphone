@@ -5,17 +5,17 @@ namespace App\Models;
 use CodeIgniter\Model;
 // use ReturnTypeWillChange;
 
-class PelangganModel extends Model
+class TransaksiModel extends Model
 {
-    protected $table      = 'pelanggan';
-    protected $primaryKey = 'id_pelanggan';
+    protected $table      = 'transaksi';
+    protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama_pelanggan', 'no_id', 'alamat', 'no_telp'];
+    protected $allowedFields = ['kode_perangkat', 'nama_perangkat',];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,16 +24,16 @@ class PelangganModel extends Model
     protected $updatedField  = 'updated_at';
 
 
-    public function getPelanggan($no_id = false){
+    public function getTransaksi($kode_perangkat = false){
         // Jika tidak memiliki paramatere maka query seluruh data
-        if($no_id == false){
+        if($kode_perangkat == false){
             return $this->findAll();
         }
         // Jika ada parameter yang ditambahkan maka tampilkan data pertama
-        return $this->where(['no_id' => $no_id])->first();
+        return $this->where(['kode_perangkat' => $kode_perangkat])->first();
     }
 
     public function cari($keyword){
-        return $this->table('pelanggan')->like('no_id', $keyword)->orLike('nama_pelanggan', $keyword);
+        return $this->table('perangkat')->like('kode_perangkat', $keyword)->orLike('nama_perangkat', $keyword);
     }
 }

@@ -34,22 +34,20 @@
       <div class="container">
         <a href="#" class="navbar-brand">Jasa Sewa Iphone</a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navmenu"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="#learn" class="nav-link">What You'll Learn</a>
+              <a href="#learn" class="nav-link">Why?</a>
             </li>
             <li class="nav-item">
-              <a href="#questions" class="nav-link">Questions</a>
+              <a href="#catalogue" class="nav-link">Catalogue</a>
+            </li>
+            <li class="nav-item">
+              <a href="#questions" class="nav-link">FAQ</a>
             </li>
             <li class="nav-item">
               <a href="<?= base_url('/login'); ?>" class="nav-link">Admin</a>
@@ -60,9 +58,7 @@
     </nav>
 
     <!-- Showcase -->
-    <section
-      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
-    >
+    <section class="text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start hero" >
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
@@ -74,34 +70,26 @@
               Sewa Sekarang!
             </button>
           </div>
-          <img
-            class="img-fluid w-50 d-none d-sm-block"
-            src="img/showcase.svg"
-            alt=""
-          />
+          <img class="img-fluid w-50 d-none d-sm-block" src="img/Iphone12.1.jpg" alt=""/>
         </div>
       </div>
     </section>
 
     
     <!-- Learn Sections -->
-    <section id="learn" class="p-5">
+    <section id="learn" class="pt-5">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md">
-            <img src="img/fundamentals.svg" class="img-fluid" alt="" />
+          <div class="col-md pt-5">
+            <img src="img/Iphone-2.png" class="img-fluid" alt="" />
           </div>
           <div class="col-md p-5">
             <h2>Mengapa Sewa iPhone</h2>
             <p class="lead">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique deleniti possimus magnam corporis ratione facere!
+            Hampir semua tipe iPhone bisa menjadi pilihan untuk bermain game, dan iPhone 12 Pro Max merupakan iPhone terkencang dan terbaik yang pernah dimiliki oleh Apple saat ini.
             </p>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-              reiciendis eius autem eveniet mollitia, at asperiores suscipit
-              quae similique laboriosam iste minus placeat odit velit quos,
-              nulla architecto amet voluptates?
+            Dilengkapi dengan chipset terkencang Apple A14, performa dari jajaran iPhone sudah tidak diragukan lagi, semua game dapat dilibas rata kanan tanpa masalah.
             </p>
             <a href="#" class="btn btn-light mt-3">
               <i class="bi bi-chevron-right"></i> Read More
@@ -139,7 +127,7 @@
 
 
     <!-- Boxes -->
-    <section class="p-5">
+    <section id="catalogue" class="p-5">
       <div class="container">
         <div class="row text-center g-4">
           <div class="col-md">
@@ -153,7 +141,7 @@
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Iure, quas quidem possimus dolorum esse eligendi?
                 </p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <a href="#" class="btn btn-primary">Sewa</a>
               </div>
             </div>
           </div>
@@ -199,140 +187,66 @@
           <!-- Item 1 -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#question-one"
-              >
-                Where exactly are you located?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-one">
+              Apa saja perangkat iPhone yang dapat disewa?
               </button>
             </h2>
-            <div
-              id="question-one"
-              class="accordion-collapse collapse"
-              data-bs-parent="#questions"
-            >
+            <div id="question-one" class="accordion-collapse collapse" data-bs-parent="#questions" >
               <div class="accordion-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                totam tempora accusamus modi explicabo accusantium consequatur,
-                praesentium rem quisquam molestias at quos vero. Officiis ad
-                velit doloremque at. Dignissimos praesentium necessitatibus
-                natus corrupti cum consequatur aliquam! Minima molestias iure
-                quam distinctio velit.
+              Kami menyediakan berbagai model iPhone terbaru, mulai dari iPhone terkini hingga versi yang lebih lama, sesuai dengan kebutuhan Anda.
               </div>
             </div>
           </div>
           <!-- Item 2 -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#question-two"
-              >
-                How much does it cost to attend?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-two">
+              Berapa lama waktu sewa yang dapat dipilih?
               </button>
             </h2>
-            <div
-              id="question-two"
-              class="accordion-collapse collapse"
-              data-bs-parent="#questions"
-            >
+            <div id="question-two" class="accordion-collapse collapse" data-bs-parent="#questions">
               <div class="accordion-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                totam tempora accusamus modi explicabo accusantium consequatur,
-                praesentium rem quisquam molestias at quos vero. Officiis ad
-                velit doloremque at. Dignissimos praesentium necessitatibus
-                natus corrupti cum consequatur aliquam! Minima molestias iure
-                quam distinctio velit.
+              Anda dapat memilih waktu sewa mulai dari satu hari hingga beberapa bulan. Kami menyediakan fleksibilitas waktu sewa sesuai kebutuhan Anda.
               </div>
             </div>
           </div>
           <!-- Item 3 -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#question-three"
-              >
-                What do I need to Know?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#question-three" >
+                Apa saja yang termasuk dalam biaya sewa?
               </button>
             </h2>
-            <div
-              id="question-three"
-              class="accordion-collapse collapse"
-              data-bs-parent="#questions"
-            >
+            <div id="question-three" class="accordion-collapse collapse" data-bs-parent="#questions">
               <div class="accordion-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                totam tempora accusamus modi explicabo accusantium consequatur,
-                praesentium rem quisquam molestias at quos vero. Officiis ad
-                velit doloremque at. Dignissimos praesentium necessitatibus
-                natus corrupti cum consequatur aliquam! Minima molestias iure
-                quam distinctio velit.
+              Biaya sewa mencakup perangkat iPhone, charger, dan asuransi standar. Biaya pengiriman dan pengembalian juga dapat dimasukkan dalam paket, tergantung pada lokasi dan ketentuan pengiriman.
               </div>
             </div>
           </div>
           <!-- Item 4 -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#question-four"
-              >
-                How Do I sign up?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-four">
+              Bagaimana proses pemesanan dan pembayaran?
               </button>
             </h2>
-            <div
-              id="question-four"
-              class="accordion-collapse collapse"
-              data-bs-parent="#questions"
-            >
+            <div id="question-four" class="accordion-collapse collapse" data-bs-parent="#questions" >
               <div class="accordion-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                totam tempora accusamus modi explicabo accusantium consequatur,
-                praesentium rem quisquam molestias at quos vero. Officiis ad
-                velit doloremque at. Dignissimos praesentium necessitatibus
-                natus corrupti cum consequatur aliquam! Minima molestias iure
-                quam distinctio velit.
+              Anda dapat memesan perangkat iPhone melalui situs web kami atau menghubungi layanan pelanggan kami. Pembayaran dapat dilakukan secara online melalui berbagai metode pembayaran yang tersedia.
               </div>
             </div>
           </div>
           <!-- Item 5 -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#question-five"
-              >
-                Do you help me find a job?
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-five">
+              Bagaimana proses pengiriman dan pengembalian perangkat?
               </button>
             </h2>
-            <div
-              id="question-five"
-              class="accordion-collapse collapse"
-              data-bs-parent="#questions"
-            >
+            <div id="question-five" class="accordion-collapse collapse" data-bs-parent="#questions">
               <div class="accordion-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                totam tempora accusamus modi explicabo accusantium consequatur,
-                praesentium rem quisquam molestias at quos vero. Officiis ad
-                velit doloremque at. Dignissimos praesentium necessitatibus
-                natus corrupti cum consequatur aliquam! Minima molestias iure
-                quam distinctio velit.
+              Proses pengiriman dan pengembalian akan diatur oleh tim logistik kami. Anda akan menerima petunjuk pengiriman bersamaan dengan konfirmasi pemesanan Anda. Pastikan untuk mengikuti petunjuk ini agar proses berjalan lancar.
               </div>
             </div>
           </div>
@@ -349,21 +263,17 @@
             <h2 class="text-center mb-4">Contact Info</h2>
             <ul class="list-group list-group-flush lead">
               <li class="list-group-item">
-                <span class="fw-bold">Main Location:</span> 50 Main st Boston MA
+                <span class="fw-bold">Lokasi :</span> Jl. Kemanggisan Utama Raya, RT.3/RW.2,
+                Slipi, Kec. Palmerah,Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11480
               </li>
               <li class="list-group-item">
-                <span class="fw-bold">Enrollment Phone:</span> (555) 555-5555
+                <span class="fw-bold">No. Telp :</span> (555) 555-5555
               </li>
-              <li class="list-group-item">
-                <span class="fw-bold">Student Phone:</span> (333) 333-3333
+              <li class="list-group-item mb-5">
+                <span class="fw-bold">Email :</span> 
+                19220059@bsi.ac.id
               </li>
-              <li class="list-group-item">
-                <span class="fw-bold">Enrollment Email:</span> (555)
-                enroll@frontendbc.test
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold">Student Email:</span>
-                student@frontendbc.test
+              <li class="list-group-item mb-5"> 
               </li>
             </ul>
           </div>
@@ -375,11 +285,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="p-5 bg-dark text-white text-center position-relative">
+    <footer class="p-3 bg-dark text-white text-center position-relative">
       <div class="container">
         <p class="lead">Copyright &copy; 2021 Frontend Bootcamp</p>
 
-        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+        <a href="#" class="position-absolute bottom-0 end-0 p-3 me-5">
           <i class="bi bi-arrow-up-circle h1"></i>
         </a>
       </div>
@@ -417,11 +327,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
             <button type="button" class="btn btn-primary">Submit</button>
@@ -443,9 +349,11 @@
       var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-71.060982, 42.35725],
+        center: [106.79546433406193,-6.189838010050607],
         zoom: 18,
       })
+
+
     </script>
   </body>
 </html>

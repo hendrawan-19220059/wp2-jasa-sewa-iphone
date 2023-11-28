@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="mt-3">User List</h1>
+    <h1 class="mt-3 ms-1 fw-semibold">User List</h1>
 
     <div class="row g-3">
         <div class="col">

@@ -32,6 +32,9 @@ table > tbody > tr > .tombol {
   padding-right: -30px;
 }
 
+.hero{
+  background-color: black;
+}
 
 .gambar{
   width: 80px;

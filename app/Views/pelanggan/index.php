@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="mt-3">Data Pelanggan</h1>
+    <h1 class="mt-3 fw-semibold">Data Pelanggan</h1>
 
     <div class="row g-3">
         <div class="col">
@@ -66,7 +66,7 @@
                 <td>
                     <div class="btn-group tombol mx-auto" role="group" aria-label="Basic mixed styles example">
                         <a href="<?= base_url(); ?>pelanggan/update/<?= $p['no_id']; ?>" class="btn btn-success">Update</a>
-                        <a href="<?= base_url(); ?>pelanggan/delete/<?= $p['id']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
+                        <a href="<?= base_url(); ?>pelanggan/delete/<?= $p['id_pelanggan']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
                     </div>
                 </td>
             </tr>
