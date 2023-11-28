@@ -96,74 +96,52 @@ class Pelanggan extends BaseController
     // }
 
 
-    // public function update($id){
-    //     session();
-    //     $data = [
-    //         'title' => "Update Perangkat". $this->judul_web,
-    //         'validation' => \Config\Services::validation(),
-    //         'perangkat' => $this->pelangganModel->getPerangkat($id)
-    //     ];     
-    //     return view('templates/header', $data) . view('perangkat/update_perangkat') . view('templates/footer');
-    // }
+    public function update($id){
+        session();
+        $data = [
+            'title' => "Update Perangkat". $this->judul_web,
+            'validation' => \Config\Services::validation(),
+            'pelanggan' => $this->pelangganModel->getPelanggan($id)
+        ];     
+        return view('templates/header', $data) . view('pelanggan/update_pelanggan') . view('templates/footer');
+    }
 
 
 
-    // public function change($id){
-    //     if(!$this->validate([
-    //         'kode_perangkat' => [
-    //             'rules' => 'is_unique[perangkat.kode_perangkat, id,' .  $id . ']',
-    //             'errors' => [
-    //                 'is_unique' => 'Kode Perangkat sudah terdaftar!'
-    //             ]
-    //             ],
-    //         'gambar' => [
-    //             'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-    //             'errors'=> [
-    //                 'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
-    //                 'is_image' => 'File yang anda upload bukan gambar',
-    //                 'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
-    //             ]
-    //             ]
-    //     ])) {
+    public function change($id){
+        if(!$this->validate([
+            'kode_perangkat' => [
+                'rules' => 'is_unique[perangkat.kode_perangkat, id_pelanggan,' .  $id . ']',
+                'errors' => [
+                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
+                ]
+                ]
+                ]
+        )) {
            
-    //         $validation = \Config\Services::validation();
-    //         // Mengembalikan ke halaman tambah perangkat
-    //         return redirect()->back()->withInput()->with('validation', $validation);
-    //     }
+            $validation = \Config\Services::validation();
+            // Mengembalikan ke halaman tambah perangkat
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
         
-    //     $perangkat = $this->pelangganModel->find($id);
-    //     $gambar_perangkat = $this->request->getFile('gambar');
-    //     $nama_gambar_lama = $perangkat['gambar'];
-    //     $nama_gambar = '';
-
-    //     // dd($nama_gambar_lama);
-
-    //     if($gambar_perangkat->getError() != 4){
-    //         unlink('img/perangkat/'. $nama_gambar_lama);
-    //         // Pindahkan gambar
-    //         $gambar_perangkat->move('img/perangkat');
-    //         // Ambil nama gambar
-    //         $nama_gambar = $gambar_perangkat->getName();
-    //     }else{
-    //         $nama_gambar = $nama_gambar_lama;
-    //     }
+        $perangkat = $this->pelangganModel->find($id);
+        
 
 
-    //     $this->pelangganModel->save([
-    //         'id' => $id,
-    //         'kode_perangkat' => $this->request->getPost('kode_perangkat'),
-    //         'nama_perangkat' => $this->request->getPost('nama_perangkat'),
-    //         'memory'=> $this->request->getPost('memory'),
-    //         'warna' => $this->request->getPost('warna'),
-    //         'gambar' => $nama_gambar
-    //     ]);
+        $this->pelangganModel->save([
+            'id_pelanggan' => $id,
+            'nama_pelanggan' => $this->request->getPost('nama_pelanggan'),
+            'no_id' => $this->request->getPost('no_id'),
+            'alamat'=> $this->request->getPost('alamat'),
+            'no_telp' => $this->request->getPost('no_telp'),
+        ]);
 
-    //     // Menambahkan session sebelum redirect untuk alert
-    //     session()->setFlashdata("pesan", "Data berhasil diubah!");
+        // Menambahkan session sebelum redirect untuk alert
+        session()->setFlashdata("pesan", "Data berhasil diubah!");
 
-    //     return redirect()->to('/perangkat');
+        return redirect()->to('/pelanggan');
 
-    // }
+    }
 
     // public function delete($id){
     //     $perangkat = $this->pelangganModel->find($id);
