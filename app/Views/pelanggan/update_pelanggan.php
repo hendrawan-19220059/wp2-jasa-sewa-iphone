@@ -16,7 +16,7 @@
         <div class="clearfix mt-5 ">
             
 
-            <form action="pelanggan/change/<?= $pelanggan['id_pelanggan']?>" method="post" class="perangkat px-4">
+            <form action="/pelanggan/change/<?= $pelanggan['id_pelanggan']?>" method="post" class="perangkat px-4">
             <div class="mb-2 mx-5 col-md-5">
                 <label for="nama_pelanggan" class="form-label">Nama</label>
                 <input type="text" class="form-control" name="nama_pelanggan" value="<?= $pelanggan['nama_pelanggan']?>">

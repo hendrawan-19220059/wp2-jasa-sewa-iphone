@@ -82,19 +82,6 @@ class Pelanggan extends BaseController
         return redirect()->to('/pelanggan');
     }
     
-    // public function detail($kode_perangkat){
-    //     $data = [
-    //         'title' => "Detail Perangkat". $this->judul_web,
-    //         'perangkat' => $this->pelangganModel->getPerangkat($kode_perangkat)
-    //     ];
-        
-    //     if(empty($data['perangkat'])){
-    //         throw new \CodeIgniter\Exceptions\PageNotFoundException("Data perangkat tidak ditemukan!");
-    //     };
-        
-    //     return view('templates/header', $data) . view('perangkat/detail_perangkat', $data) . view('templates/footer');
-    // }
-
 
     public function update($id){
         session();
@@ -109,22 +96,24 @@ class Pelanggan extends BaseController
 
 
     public function change($id){
-        if(!$this->validate([
-            'kode_perangkat' => [
-                'rules' => 'is_unique[perangkat.kode_perangkat, id_pelanggan,' .  $id . ']',
+        $rules = [
+            'no_id' => [
+                'rules' => 'is_unique[pelanggan.no_id, id_pelanggan,' .  $id . ']',
                 'errors' => [
-                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
+                    'is_unique' => 'Id pelanggan sudah terdaftar!'
                 ]
                 ]
-                ]
-        )) {
+                ];
+
+
+        if(!$this->validate($rules)) {
            
             $validation = \Config\Services::validation();
             // Mengembalikan ke halaman tambah perangkat
             return redirect()->back()->withInput()->with('validation', $validation);
         }
         
-        $perangkat = $this->pelangganModel->find($id);
+        $pelanggan = $this->pelangganModel->find($id);
         
 
 
