@@ -32,7 +32,7 @@ table > tbody > tr > .tombol {
   padding-right: -30px;
 }
 
-.hero{
+.background-black{
   background-color: black;
 }
 
@@ -59,4 +59,9 @@ table > tbody > tr > .tombol {
 form .perangkat{
   width: 510px;
   margin: 10px auto;
+}
+
+
+.img-iphone{
+  padding-bottom: 0 !important;
 }

@@ -58,7 +58,7 @@
     </nav>
 
     <!-- Showcase -->
-    <section class="text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start hero" >
+    <section class="text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start background-black" >
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
@@ -99,27 +99,21 @@
       </div>
     </section>
 
-    <section id="learn" class="p-5 bg-dark text-light">
+    <section id="learn" class="pt-5 text-light background-black">
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md p-5">
+          <div class="col-md pt-5">
             <h2>Learn React</h2>
             <p class="lead">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique deleniti possimus magnam corporis ratione facere!
+            Sewa iPhone menawarkan fleksibilitas tanpa biaya awal besar dan memungkinkan pengguna untuk mencoba model terbaru. Dengan berbagai pilihan model dan spesifikasi, sewa iPhone menjadi alternatif cerdas yang mengurangi keterikatan jangka panjang dan memberikan pengalaman pengguna yang efisien dan terkini.
             </p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-              reiciendis eius autem eveniet mollitia, at asperiores suscipit
-              quae similique laboriosam iste minus placeat odit velit quos,
-              nulla architecto amet voluptates?
-            </p>
-            <a href="#" class="btn btn-light mt-3">
+
+            <a href="#" class="btn btn-light mt-3 d-none">
               <i class="bi bi-chevron-right"></i> Read More
             </a>
           </div>
           <div class="col-md">
-            <img src="img/react.svg" class="img-fluid" alt="" />
+            <img src="img/Iphone-3.png" class="img-fluid img-iphone" alt="" />
           </div>
         </div>
       </div>
@@ -287,7 +281,7 @@
     <!-- Footer -->
     <footer class="p-3 bg-dark text-white text-center position-relative">
       <div class="container">
-        <p class="lead">Copyright &copy; 2021 Frontend Bootcamp</p>
+        <p class="lead">Copyright &copy; 2023 Tugas</p>
 
         <a href="#" class="position-absolute bottom-0 end-0 p-3 me-5">
           <i class="bi bi-arrow-up-circle h1"></i>
