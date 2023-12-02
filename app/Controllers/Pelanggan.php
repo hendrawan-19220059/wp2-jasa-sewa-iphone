@@ -132,22 +132,15 @@ class Pelanggan extends BaseController
 
     }
 
-    // public function delete($id){
-    //     $perangkat = $this->pelangganModel->find($id);
-                
-    //     // Delete gambar di file lokal
-    //     if($perangkat['gambar'] != 'default.jpg'){
-    //         unlink('img/perangkat/'. $perangkat['gambar']);
-    //     }
-        
-    //     // Delete gambar di database
-    //     $this->pelangganModel->where(['id' => $id])->delete();
+    public function delete($id){
 
-    //     // Kirim pesan ke halaman selanjutnya
-    //     session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
+        $this->pelangganModel->where(['id_pelanggan' => $id])->delete();
 
-    //     // Redirect ke halaman awal
-    //     return redirect()->back();
-    // }   
+        // Kirim pesan ke halaman selanjutnya
+        session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
+
+        // Redirect ke halaman awal
+        return redirect()->back();
+    }   
 
 }
