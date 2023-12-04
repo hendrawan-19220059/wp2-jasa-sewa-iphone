@@ -8,14 +8,14 @@ use CodeIgniter\Model;
 class TransaksiModel extends Model
 {
     protected $table      = 'transaksi';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_transaksi';
 
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['kode_perangkat', 'nama_perangkat',];
+    protected $allowedFields = ['tanggal_transaksi', 'id_pelanggan', 'id', 'kode_perangkat'];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,16 +24,16 @@ class TransaksiModel extends Model
     protected $updatedField  = 'updated_at';
 
 
-    public function getTransaksi($kode_perangkat = false){
+    public function getTransaksi($id_transaksi = false){
         // Jika tidak memiliki paramatere maka query seluruh data
-        if($kode_perangkat == false){
+        if($id_transaksi == false){
             return $this->findAll();
         }
         // Jika ada parameter yang ditambahkan maka tampilkan data pertama
-        return $this->where(['kode_perangkat' => $kode_perangkat])->first();
+        return $this->where(['id_transaksi' => $id_transaksi])->first();
     }
 
     public function cari($keyword){
-        return $this->table('perangkat')->like('kode_perangkat', $keyword)->orLike('nama_perangkat', $keyword);
+        return $this->table('transaksi')->like('id_pelanggan', $keyword)->orLike('id', $keyword);
     }
 }

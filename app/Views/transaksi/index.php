@@ -51,7 +51,7 @@
 
             </tr>
         </thead>
-        <?php $i = 1 + (5 * ($currentPage - 1)); ?>
+        <?php $i = 1; ?>
         <tbody class="table-group-divider">
             <?php foreach($pelanggan as $p) :?>
             <tr>
