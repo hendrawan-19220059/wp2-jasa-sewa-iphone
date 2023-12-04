@@ -8,7 +8,7 @@ use CodeIgniter\Model;
 class PerangkatModel extends Model
 {
     protected $table      = 'perangkat';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_perangkat';
 
     protected $useAutoIncrement = true;
 

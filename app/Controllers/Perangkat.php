@@ -135,7 +135,7 @@ class Perangkat extends BaseController
     public function change($id){
         if(!$this->validate([
             'kode_perangkat' => [
-                'rules' => 'is_unique[perangkat.kode_perangkat, id,' .  $id . ']',
+                'rules' => 'is_unique[perangkat.kode_perangkat, id_perangkat,' .  $id . ']',
                 'errors' => [
                     'is_unique' => 'Kode Perangkat sudah terdaftar!'
                 ]
@@ -174,7 +174,7 @@ class Perangkat extends BaseController
 
 
         $this->perangkatModel->save([
-            'id' => $id,
+            'id_perangkat' => $id,
             'kode_perangkat' => $this->request->getPost('kode_perangkat'),
             'nama_perangkat' => $this->request->getPost('nama_perangkat'),
             'memory'=> $this->request->getPost('memory'),

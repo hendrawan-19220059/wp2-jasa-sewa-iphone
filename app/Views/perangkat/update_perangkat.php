@@ -19,7 +19,7 @@
             class="col-md-6 float-md-start mb-3 ms-md-3 img-thumbnail gambar-detail"
             alt="<?= $perangkat['kode_perangkat']?>">
 
-            <form action="/data/perangkat/change/<?= $perangkat['id']?>" method="post" enctype="multipart/form-data" class="perangkat px-4">
+            <form action="/perangkat/change/<?= $perangkat['id_perangkat']?>" method="post" enctype="multipart/form-data" class="perangkat px-4">
             <div class="mb-2 mx-5 float-md-start col-md-5">
                 <label for="kode_perangkat" class="form-label">Kode Perangkat</label>
                 <input type="text" class="form-control" name="kode_perangkat" value="<?= $perangkat['kode_perangkat']?>">

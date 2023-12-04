@@ -64,7 +64,7 @@
                     <div class="btn-group tombol mx-auto" role="group" aria-label="Basic mixed styles example">
                         <a href="<?= base_url(); ?>perangkat/<?= $p['kode_perangkat']; ?>" class="btn btn-success">Show</a>
                         <a href="<?= base_url(); ?>perangkat/update/<?= $p['kode_perangkat']; ?>" class="btn btn-primary">Update</a>
-                        <a href="<?= base_url(); ?>perangkat/delete/<?= $p['id']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
+                        <a href="<?= base_url(); ?>perangkat/delete/<?= $p['id_perangkat']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
                     </div>
                 </td>
             </tr>
