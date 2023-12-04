@@ -2,15 +2,25 @@
 
 namespace App\Controllers;
 
+use App\Models\PelangganModel;
+use App\Models\UserModel;
+use App\Models\PerangkatModel;
 use App\Models\TransaksiModel;
 
 class Transaksi extends BaseController
 {
     protected $transaksiModel;
+    protected $perangkatModel;
+    protected $pelangganModel;
+    protected $userModel;
 
     public function __construct()
     {
         $this->transaksiModel = new TransaksiModel();
+        $this->perangkatModel = new PerangkatModel();
+        $this->userModel = new UserModel();
+        $this->pelangganModel = new PelangganModel();
+
         
     }
 
@@ -23,16 +33,16 @@ class Transaksi extends BaseController
         $keyword = $this->request->getVar('keyword');
         
         if($keyword){
-            $perangkat = $this->transaksiModel->cari($keyword);
+            $transaksi = $this->transaksiModel->cari($keyword);
         }else {
-            $perangkat = $this->transaksiModel->findAll();
+            $transaksi = $this->transaksiModel->getTransaksiData();
         }
 
 
         
         $data = [
             'title' => "". $this->judul_web,
-            'perangkat' => $this->transaksiModel->paginate(5, 'perangkat'),
+            'transaksi' => $this->transaksiModel->paginate(5, 'perangkat'),
             'pager' => $this->transaksiModel->pager,
             // 'currentPage' => $currentPage
         ];
@@ -45,10 +55,13 @@ class Transaksi extends BaseController
         session();
         $data = [
             'title' => "Tambah Perangkat". $this->judul_web,
+            'perangkat' => $this->perangkatModel->findAll(),
+            'pelanggan' => $this->pelangganModel->findAll(),
+            'user' => $this->userModel->findAll(),
             'validation' => \Config\Services::validation()
         ];
         
-        return view('templates/header', $data) . view('perangkat/tambah_perangkat') . view('templates/footer');
+        return view('templates/header', $data) . view('transaksi/tambah_transaksi') . view('templates/footer');
     }
 
 
@@ -76,28 +89,12 @@ class Transaksi extends BaseController
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
-        // Ambil gambar
-        $gambar_perangkat = $this->request->getFile('gambar');
-
-
-        if($gambar_perangkat->getError() == 4){
-            $nama_gambar = 'default.jpg';
-
-        }else{
-            // Pindahkan gambar
-            $gambar_perangkat->move('img/perangkat');
-            // Ambil nama gambar
-            $nama_gambar = $gambar_perangkat->getName();
-        }
-
 
 
         $this->transaksiModel->save([
-            'kode_perangkat' => $this->request->getPost('kode_perangkat'),
-            'nama_perangkat' => $this->request->getPost('nama_perangkat'),
-            'memory'=> $this->request->getPost('memory'),
-            'warna' => $this->request->getPost('warna'),
-            'gambar' => $nama_gambar
+            'tanggal_transaksi' => $this->request->getPost('tanggal_transaksi'),
+            'id_pelanggan' => $this->request->getPost('id_pelanggan'),
+            'id_perangkat'=> $this->request->getPost('id_perangkat')
         ]);
 
         // Menambahkan session sebelum redirect untuk alert

@@ -15,7 +15,7 @@ class TransaksiModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['tanggal_transaksi', 'id_pelanggan', 'id', 'kode_perangkat'];
+    protected $allowedFields = ['tanggal_transaksi', 'id_pelanggan', 'id', 'id_perangkat'];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,13 +24,14 @@ class TransaksiModel extends Model
     protected $updatedField  = 'updated_at';
 
 
-    public function getTransaksi($id_transaksi = false){
-        // Jika tidak memiliki paramatere maka query seluruh data
-        if($id_transaksi == false){
-            return $this->findAll();
-        }
-        // Jika ada parameter yang ditambahkan maka tampilkan data pertama
-        return $this->where(['id_transaksi' => $id_transaksi])->first();
+    public function getTransaksiData()
+    {
+        return $this->db->table('transaksi')
+                    ->join('pelanggan', 'pelanggan.id_pelanggan = transaksi.id_pelanggan')
+                    ->join('users', 'users.id = transaksi.id')
+                    ->join('perangkat', 'perangkat.id_perangkat = transaksi.id_perangkat')
+                    ->select('pelanggan.nama_pelanggan', 'users.user', 'perangkat.kode_perangkat')
+                    ->get()->getResultArray();
     }
 
     public function cari($keyword){

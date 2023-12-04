@@ -35,16 +35,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
-
-
+       
     <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">No.</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Perangkat</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">No Telp</th> 
+                <th scope="col">Tgl Transaksi</th>
+                <th scope="col">Nama Pelanggan</th>
+                <th scope="col">Kode Perangkat</th>
+                <th scope="col">User</th> 
                 <th scope="col">Dibuat</th>
                 <th scope="col">Diubah</th> 
                 <th scope="col"></th>
@@ -53,20 +52,21 @@
         </thead>
         <?php $i = 1; ?>
         <tbody class="table-group-divider">
-            <?php foreach($pelanggan as $p) :?>
+            <?php foreach($transaksi as $t) :?>
+                
             <tr>
                 <th scope="row"><?= $i++; ?></th>
-                
-                <td><?= $p['nama_pelanggan']; ?></td>
-                <td><?= $p['no_id']; ?></td>
-                <td><?= $p['alamat']; ?></td>
-                <td><?= $p['no_telp']; ?></td>
-                <td><?= $p['created_at']; ?></td>
-                <td><?= $p['updated_at']; ?></td>
+             
+                <td><?= $t['tanggal_transaksi']; ?></td>
+                <td><?= $t['id_pelanggan']; ?></td>
+                <td><?= $t['id_perangkat']; ?></td>
+                <td><?= $t['id']; ?></td>
+                <td><?= $t['created_at']; ?></td>
+                <td><?= $t['updated_at']; ?></td>
                 <td>
                     <div class="btn-group tombol mx-auto" role="group" aria-label="Basic mixed styles example">
-                        <a href="<?= base_url(); ?>pelanggan/update/<?= $p['no_id']; ?>" class="btn btn-success">Update</a>
-                        <a href="<?= base_url(); ?>pelanggan/delete/<?= $p['id']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
+                        <a href="<?= base_url(); ?>transaksi/update/<?= $t['id_transaksi']; ?>" class="btn btn-success">Update</a>
+                        <a href="<?= base_url(); ?>pelanggan/delete/<?= $t['id_transaksi']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
                     </div>
                 </td>
             </tr>

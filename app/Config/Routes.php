@@ -53,3 +53,11 @@ $routes->post('/pelanggan', 'pelanggan::index', ['filter' => 'authFilter']);
 
 $routes->get('/pelanggan/update/(:segment)', 'pelanggan::update/$1', ['filter' => 'authFilter']);
 $routes->post('/pelanggan/change/(:segment)', 'pelanggan::change/$1', ['filter' => 'authFilter']);
+
+
+// Transaksi
+$routes->get('/transaksi', 'transaksi::index', ['filter' => 'authFilter']);
+$routes->post('/transaksi', 'transaksi::index', ['filter' => 'authFilter']);
+
+$routes->get('/transaksi/create', 'transaksi::create', ['filter' => 'authFilter']);
+$routes->post('/transaksi/save', 'transaksi::save', ['filter' => 'authFilter']);
