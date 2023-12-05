@@ -23,13 +23,13 @@ class Login extends BaseController
         $user = $userModel->where('email', $email)->first();
  
         if(is_null($user)) {
-            return redirect()->back()->withInput()->with('error', 'Invalid username or password.');
+            return redirect()->back()->withInput()->with('error', 'Username atau Password salah.');
         }
  
         $pwd_verify = password_verify($password, $user['password']);
  
         if(!$pwd_verify) {
-            return redirect()->back()->withInput()->with('error', 'Invalid username or password.');
+            return redirect()->back()->withInput()->with('error', 'Username atau Password salah.');
         }
  
         $ses_data = [

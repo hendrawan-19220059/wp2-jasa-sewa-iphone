@@ -86,7 +86,7 @@ class Pelanggan extends BaseController
     public function update($id){
         session();
         $data = [
-            'title' => "Update Perangkat". $this->judul_web,
+            'title' => "Update Pelanggan". $this->judul_web,
             'validation' => \Config\Services::validation(),
             'pelanggan' => $this->pelangganModel->getPelanggan($id)
         ];     

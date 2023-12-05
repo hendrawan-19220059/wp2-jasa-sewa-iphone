@@ -11,7 +11,6 @@
         </div>
         <?php endif ?>
 
-        <!-- enctype="multipart/form-data" wajib ditambahkan jika ingin mengurus file -->
         <form action="/pelanggan/save" method="post" class="perangkat px-4">
             <div class="mb-3">
                 <label for="nama_pelanggan" class="form-label">Nama</label>

@@ -2,8 +2,7 @@
         <h1 class="text-center fw-semibold pt-2">Tambah Transaksi</h1>
 
 
-
-        <?php if (session('validation')) : ?>
+        <!-- <?php if (session('validation')) : ?>
                 <?php foreach (session('validation')->getErrors() as $error) : ?>
                     <div class="alert alert-danger alert-dismissible fade show my-2" role="alert">
                     <?= esc($error) ?>
@@ -11,22 +10,7 @@
                 <?php endforeach ?>
         </div>
         <?php endif ?>
-
-        <?php if (session('validation')) : ?>
-
-            <?php if (session('validation')->hasError('gambar')) : ?>
-                <div class="alert alert-danger alert-dismissible fade show my-2" role="alert">
-                    <?= session('validation')->getError('gambar'); ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif ?>
-
-        <?php endif ?>
-
-      
-        
-
-       
+        -->
 
 
         <form action="/perangkat/save" method="post" class="perangkat px-4">
@@ -44,6 +28,15 @@
             </select>
             </div>
             
+            <div class="mb-3">
+            <label for="id" class="form-label">Petugas</label>
+            <select class="form-select" aria-label="Default select example" name="id">
+                <?php foreach ($user as $o) : ?>
+                    <option value="<?= $o['id']; ?>"><?= $o['nama']; ?></option>
+                <?php endforeach; ?>
+            </select>
+            </div>
+
             <div class="mb-3">
             <label for="perangkat" class="form-label">Perangkat</label>
             <select class="form-select" aria-label="Default select example" name="id_perangkat">

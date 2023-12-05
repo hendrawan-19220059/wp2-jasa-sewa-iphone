@@ -54,7 +54,7 @@ class Transaksi extends BaseController
     public function create(){
         session();
         $data = [
-            'title' => "Tambah Perangkat". $this->judul_web,
+            'title' => "Transaksi". $this->judul_web,
             'perangkat' => $this->perangkatModel->findAll(),
             'pelanggan' => $this->pelangganModel->findAll(),
             'user' => $this->userModel->findAll(),
@@ -68,134 +68,35 @@ class Transaksi extends BaseController
 
     public function save(){ 
         // validasi input
-        if(!$this->validate([
-            'kode_perangkat' => [
-                'rules' => 'is_unique[perangkat.kode_perangkat]',
-                'errors' => [
-                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
-                ]
-                ],
-            'gambar' => [
-                'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-                'errors'=> [
-                    'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
-                    'is_image' => 'File yang anda upload bukan gambar',
-                    'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
-                ]
-                ]
-        ])){
-            $validation = \Config\Services::validation();
-            // Mengembalikan ke halaman tambah perangkat
-            return redirect()->back()->withInput()->with('validation', $validation);
-        }
-
-
+        // $rules = [
+        //     'tanggal_transaksi' => [
+        //         'rules' => 'valid_date[m/d/Y]'
+        //         ]
+        //         ];
+                
+        // if(!$this->validate($rules)){
+        //     $validation = \Config\Services::validation();
+        //     // Mengembalikan ke halaman tambah perangkat
+        //     return redirect()->back()->withInput()->with('validation', $validation);
+        // }
 
         $this->transaksiModel->save([
             'tanggal_transaksi' => $this->request->getPost('tanggal_transaksi'),
             'id_pelanggan' => $this->request->getPost('id_pelanggan'),
-            'id_perangkat'=> $this->request->getPost('id_perangkat')
+            'id_perangkat'=> $this->request->getPost('id_perangkat'),
+            'id'=> $this->request->getPost('user_id'),
         ]);
 
         // Menambahkan session sebelum redirect untuk alert
-        session()->setFlashdata("pesan", "Data berhasil ditambahkan!");
-
-        return redirect()->to('/perangkat');
+        // session()->setFlashdata("pesan", "Data berhasil ditambahkan!");
+        
+        return redirect()->to('/transaksi');
     }
     
-    public function detail($kode_perangkat){
-        $data = [
-            'title' => "Detail Perangkat". $this->judul_web,
-            'perangkat' => $this->transaksiModel->getPerangkat($kode_perangkat)
-        ];
-        
-        if(empty($data['perangkat'])){
-            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data perangkat tidak ditemukan!");
-        };
-        
-        return view('templates/header', $data) . view('perangkat/detail_perangkat', $data) . view('templates/footer');
-    }
-
-
-    public function update($id){
-        session();
-        $data = [
-            'title' => "Update Perangkat". $this->judul_web,
-            'validation' => \Config\Services::validation(),
-            'perangkat' => $this->transaksiModel->getPerangkat($id)
-        ];     
-        return view('templates/header', $data) . view('perangkat/update_perangkat') . view('templates/footer');
-    }
-
-
-
-    public function change($id){
-        if(!$this->validate([
-            'kode_perangkat' => [
-                'rules' => 'is_unique[perangkat.kode_perangkat, id,' .  $id . ']',
-                'errors' => [
-                    'is_unique' => 'Kode Perangkat sudah terdaftar!'
-                ]
-                ],
-            'gambar' => [
-                'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-                'errors'=> [
-                    'max_size' => 'Ukuran gambar tidak boleh melebihi 2 Mb',
-                    'is_image' => 'File yang anda upload bukan gambar',
-                    'mime_in' => 'Ekstensi file yang anda gunakan tidak tepat!'
-                ]
-                ]
-        ])) {
-           
-            $validation = \Config\Services::validation();
-            // Mengembalikan ke halaman tambah perangkat
-            return redirect()->back()->withInput()->with('validation', $validation);
-        }
-        
-        $perangkat = $this->transaksiModel->find($id);
-        $gambar_perangkat = $this->request->getFile('gambar');
-        $nama_gambar_lama = $perangkat['gambar'];
-        $nama_gambar = '';
-
-        // dd($nama_gambar_lama);
-
-        if($gambar_perangkat->getError() != 4){
-            unlink('img/perangkat/'. $nama_gambar_lama);
-            // Pindahkan gambar
-            $gambar_perangkat->move('img/perangkat');
-            // Ambil nama gambar
-            $nama_gambar = $gambar_perangkat->getName();
-        }else{
-            $nama_gambar = $nama_gambar_lama;
-        }
-
-
-        $this->transaksiModel->save([
-            'id' => $id,
-            'kode_perangkat' => $this->request->getPost('kode_perangkat'),
-            'nama_perangkat' => $this->request->getPost('nama_perangkat'),
-            'memory'=> $this->request->getPost('memory'),
-            'warna' => $this->request->getPost('warna'),
-            'gambar' => $nama_gambar
-        ]);
-
-        // Menambahkan session sebelum redirect untuk alert
-        session()->setFlashdata("pesan", "Data berhasil diubah!");
-
-        return redirect()->to('/perangkat');
-
-    }
-
+   
     public function delete($id){
-        $perangkat = $this->transaksiModel->find($id);
-                
-        // Delete gambar di file lokal
-        if($perangkat['gambar'] != 'default.jpg'){
-            unlink('img/perangkat/'. $perangkat['gambar']);
-        }
-        
         // Delete gambar di database
-        $this->transaksiModel->where(['id' => $id])->delete();
+        $this->transaksiModel->where(['id_transaksi' => $id])->delete();
 
         // Kirim pesan ke halaman selanjutnya
         session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
