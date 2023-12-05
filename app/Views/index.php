@@ -66,7 +66,7 @@
             <p class="lead my-4">
               Bisa kami sewakan dengan harga yang terjangkau.
             </p>
-            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enroll">
+            <button class="btn btn-primary btn-lg fw-semibold" data-bs-toggle="modal" data-bs-target="#enroll">
               Sewa Sekarang!
             </button>
           </div>
@@ -121,7 +121,7 @@
 
 
     <!-- Boxes -->
-    <section id="catalogue" class="p-5">
+    <!-- <section id="catalogue" class="p-5">
       <div class="container">
         <div class="row text-center g-4">
           <div class="col-md">
@@ -170,8 +170,31 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </div> -->
+    <!-- </section> -->
+  <section id="catalogue" class="p-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-3 fw-semibold">Catalogue</h2>
+            </div>
+            <?php foreach($perangkat as $p) :?>
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <div class="card my-3">
+
+                    <img src="/img/perangkat/<?= $p['gambar']; ?>" alt="<?= $p['nama_perangkat']; ?>" class="card-image-top" alt="thumbnail">
+
+                    <div class="card-body">
+                        <h3 class="card-title"><?= $p['nama_perangkat']; ?></h3>
+                        <p class="card-text"><?= $p['memory']; ?> GB, <?= $p['warna']; ?></p>
+                        <a href="#" class="btn btn-dark">Sewa</a>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+  </section>
 
     <!-- Question Accordion -->
     <section id="questions" class="p-5">
@@ -319,7 +342,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary">Kirim</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
