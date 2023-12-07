@@ -37,12 +37,10 @@ class Transaksi extends BaseController
         }else {
             $transaksi = $this->transaksiModel->getTransaksiData();
         }
-
-
         
         $data = [
             'title' => "". $this->judul_web,
-            'transaksi' => $this->transaksiModel->paginate(5, 'perangkat'),
+            'transaksi' => $transaksi,
             'pager' => $this->transaksiModel->pager,
             // 'currentPage' => $currentPage
         ];

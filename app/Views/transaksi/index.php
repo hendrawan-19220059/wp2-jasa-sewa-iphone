@@ -58,9 +58,9 @@
                 <th scope="row"><?= $i++; ?></th>
              
                 <td><?= $t['tanggal_transaksi']; ?></td>
-                <td><?= $t['id_pelanggan']; ?></td>
-                <td><?= $t['id_perangkat']; ?></td>
-                <td><?= $t['id']; ?></td>
+                <td><?= $t['nama_pelanggan']; ?></td>
+                <td><?= $t['kode_perangkat']; ?></td>
+                <td><?= $t['nama']; ?></td>
                 <td><?= $t['created_at']; ?></td>
                 <td><?= $t['updated_at']; ?></td>
                 <td>
@@ -73,5 +73,4 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <?= $pager->links('perangkat', 'perangkat_pagination'); ?>
 </div>

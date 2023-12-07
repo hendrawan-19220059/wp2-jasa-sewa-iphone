@@ -198,7 +198,7 @@ class Perangkat extends BaseController
         }
         
         // Delete gambar di database
-        $this->perangkatModel->where(['id' => $id])->delete();
+        $this->perangkatModel->where(['id_perangkat' => $id])->delete();
 
         // Kirim pesan ke halaman selanjutnya
         session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');

@@ -24,14 +24,17 @@ class TransaksiModel extends Model
     protected $updatedField  = 'updated_at';
 
 
-    public function getTransaksiData()
+    public function getTransaksiData($offset = 0, $limit = 10)
     {
         return $this->db->table('transaksi')
-                    ->join('pelanggan', 'pelanggan.id_pelanggan = transaksi.id_pelanggan')
-                    ->join('users', 'users.id = transaksi.id')
-                    ->join('perangkat', 'perangkat.id_perangkat = transaksi.id_perangkat')
-                    ->select('pelanggan.nama_pelanggan', 'users.user', 'perangkat.kode_perangkat')
-                    ->get()->getResultArray();
+            ->join('pelanggan', 'pelanggan.id_pelanggan = transaksi.id_pelanggan')
+            ->join('users', 'users.id = transaksi.id')
+            ->join('perangkat', 'perangkat.id_perangkat = transaksi.id_perangkat')
+            ->select('*')
+            ->offset($offset)
+            ->limit($limit)
+            ->get()
+            ->getResultArray();
     }
 
     public function cari($keyword){
