@@ -21,7 +21,7 @@
 
             <div class="mb-3">
                 <label for="id_pelanggan" class="form-label">Pelanggan</label>
-                <select class="form-select" aria-label="Default select example" name="id_pelanggan">
+                <select class="form-select dropdown-search" aria-label="Default select example" name="id_pelanggan">
                 <?php foreach ($pelanggan as $c) : ?>
                     <option value="<?= $c['id_pelanggan']; ?>"><?= $c['nama_pelanggan']; ?></option>
                 <?php endforeach; ?>
@@ -30,7 +30,7 @@
             
             <div class="mb-3">
             <label for="id" class="form-label">Petugas</label>
-            <select class="form-select" aria-label="Default select example" name="id">
+            <select class="dropdown-search form-select" aria-label="Default select example" name="id">
                 <?php foreach ($user as $o) : ?>
                     <option value="<?= $o['id']; ?>"><?= $o['nama']; ?></option>
                 <?php endforeach; ?>
@@ -39,7 +39,7 @@
 
             <div class="mb-3">
             <label for="perangkat" class="form-label">Perangkat</label>
-            <select class="form-select" aria-label="Default select example" name="id_perangkat">
+            <select class="form-select dropdown-search" aria-label="Default select example" name="id_perangkat">
                 <?php foreach ($perangkat as $p) : ?>
                     <option value="<?= $p['id_perangkat']; ?>"><?= $p['nama_perangkat']; ?></option>
                 <?php endforeach; ?>

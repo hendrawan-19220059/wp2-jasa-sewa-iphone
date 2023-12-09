@@ -65,19 +65,6 @@ class Transaksi extends BaseController
 
 
     public function save(){ 
-        // validasi input
-        // $rules = [
-        //     'tanggal_transaksi' => [
-        //         'rules' => 'valid_date[m/d/Y]'
-        //         ]
-        //         ];
-                
-        // if(!$this->validate($rules)){
-        //     $validation = \Config\Services::validation();
-        //     // Mengembalikan ke halaman tambah perangkat
-        //     return redirect()->back()->withInput()->with('validation', $validation);
-        // }
-
         $this->transaksiModel->save([
             'tanggal_transaksi' => $this->request->getPost('tanggal_transaksi'),
             'id_pelanggan' => $this->request->getPost('id_pelanggan'),
@@ -91,16 +78,4 @@ class Transaksi extends BaseController
         return redirect()->to('/transaksi');
     }
     
-   
-    public function delete($id){
-        // Delete gambar di database
-        $this->transaksiModel->where(['id_transaksi' => $id])->delete();
-
-        // Kirim pesan ke halaman selanjutnya
-        session()->setFlashdata('pesan-hapus', 'Data Berhasil Dihapus!');
-
-        // Redirect ke halaman awal
-        return redirect()->back();
-    }   
-
 }
