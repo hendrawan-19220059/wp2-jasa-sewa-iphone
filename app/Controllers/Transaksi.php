@@ -67,9 +67,9 @@ class Transaksi extends BaseController
     public function save(){ 
         $this->transaksiModel->save([
             'tanggal_transaksi' => $this->request->getPost('tanggal_transaksi'),
-            'id_pelanggan' => $this->request->getPost('id_pelanggan'),
-            'id_perangkat'=> $this->request->getPost('id_perangkat'),
-            'id'=> $this->request->getPost('user_id'),
+            'pelanggan.id_pelanggan' => $this->request->getPost('id_pelanggan'),
+            'perangkat.id_perangkat'=> $this->request->getPost('id_perangkat'),
+            'users.id'=> $this->request->getPost('user_id'),
         ]);
 
         // Menambahkan session sebelum redirect untuk alert
