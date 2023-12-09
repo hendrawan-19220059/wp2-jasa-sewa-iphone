@@ -34,6 +34,10 @@ class PelangganModel extends Model
     }
 
     public function cari($keyword){
-        return $this->table('pelanggan')->like('no_id', $keyword)->orLike('nama_pelanggan', $keyword);
+        return $this->table('pelanggan')
+                    ->like('no_id', $keyword)
+                    ->orLike('nama_pelanggan', $keyword)
+                    ->orLike('kode_perangkat', $keyword)
+                    ->orLike('warna', $keyword);
     }
 }

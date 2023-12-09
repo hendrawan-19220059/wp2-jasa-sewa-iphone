@@ -46,7 +46,6 @@
                 <th scope="col">User</th> 
                 <th scope="col">Dibuat</th>
                 <th scope="col">Diubah</th> 
-                <th scope="col"></th>
 
             </tr>
         </thead>
@@ -63,12 +62,6 @@
                 <td><?= $t['nama']; ?></td>
                 <td><?= $t['created_at']; ?></td>
                 <td><?= $t['updated_at']; ?></td>
-                <td>
-                    <div class="btn-group tombol mx-auto" role="group" aria-label="Basic mixed styles example">
-                        <a href="<?= base_url(); ?>transaksi/update/<?= $t['id_transaksi']; ?>" class="btn btn-success">Update</a>
-                        <a href="<?= base_url(); ?>pelanggan/delete/<?= $t['id_transaksi']; ?>" class="btn btn-danger " onclick="return confirm('Yakin ingin dihapus?'); ">Delete</a>
-                    </div>
-                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

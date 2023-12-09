@@ -32,7 +32,7 @@ class Pelanggan extends BaseController
         
         $data = [
             'title' => "List Pelanggan". $this->judul_web,
-            'pelanggan' => $this->pelangganModel->paginate(9, 'pelanggan'),
+            'pelanggan' => $this->pelangganModel->paginate(9, 'perangkat'),
             'pager' => $this->pelangganModel->pager,
             'currentPage' => $currentPage
         ];
